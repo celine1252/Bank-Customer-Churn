@@ -68,4 +68,4 @@ To Huynh Ngoc Ngan
 Data Analyst | SQL | Python | Power BI
 
 LinkedIn
- | GitHub
+ | [GitHub](https://github.com/celine1252/)
