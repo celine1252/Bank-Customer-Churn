@@ -1,4 +1,5 @@
 📊 Bank Customer Churn Analysis
+
 📌 Overview
 This project analyzes 10,000 bank customer records (18 variables) to identify the main drivers of customer churn and provide data-driven retention strategies.
 Churn analysis is critical for banks to reduce revenue loss, improve customer loyalty, and optimize marketing campaigns.
