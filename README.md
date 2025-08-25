@@ -42,8 +42,6 @@ Special retention programs for female, middle-aged, and German customers.
 Complaint resolution system within 24 hours.
 
 📸 Sample Dashboard
-(👉 Bạn có thể chèn ảnh Power BI hoặc matplotlib plot vào đây, ví dụ:)
-
 ![Churn Dashboard](images/churn_dashboard.png)
 
 📂 Project Structure
