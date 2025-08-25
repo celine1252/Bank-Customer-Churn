@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Huynh Ngoc Ngan | Data Analyst</title>
+    <!-- Link to Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Chart.js for creating the chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #94a3b8;
+        }
+        .list-icon li {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .list-icon li .icon {
+            position: absolute;
+            left: 0;
+            top: 0.25rem;
+            color: #38bdf8; /* sky-400 */
+        }
+
+        /* Custom animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* All sections are now visible by default to fix the issue. The animation will be applied on scroll. */
+        .animated-section {
+            opacity: 1;
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+        
+        /* Utility for delayed animations */
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        /* Loader styling */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #38bdf8;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-sky-700 hover:text-sky-600 transition-colors duration-300">Ngan To</a>
+            <div class="space-x-4 flex items-center">
+                <a href="#about" class="text-sm font-medium text-gray-600 hover:text-sky-600 transition-colors duration-300">About</a>
+                <a href="#experience" class="text-sm font-medium text-gray-600 hover:text-sky-600 transition-colors duration-300">Experience</a>
+                <a href="#skills" class="text-sm font-medium text-gray-600 hover:text-sky-600 transition-colors duration-300">Skills</a>
+                <a href="#projects" class="text-sm font-medium text-gray-600 hover:text-sky-600 transition-colors duration-300">Projects</a>
+                <a href="#education" class="text-sm font-medium text-gray-600 hover:text-sky-600 transition-colors duration-300">Education</a>
+                <a href="#contact" class="text-sm font-medium text-sky-700 bg-sky-100 py-1.5 px-4 rounded-full hover:bg-sky-200 transition-colors duration-300">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 md:px-8 py-12">
+        <!-- Hero Section -->
+        <section id="home" class="py-20 lg:py-24 text-center animated-section animate-fade-in-up">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-4 animate-fade-in-up">
+                    Hi, I'm <span class="text-sky-700">Ngan To</span>.
+                </h1>
+                <p class="text-lg md:text-xl lg:text-2xl font-light text-slate-600 mb-6 animate-fade-in-up delay-100">
+                    A dedicated Data Analyst transforming raw data into strategic business insights.
+                </p>
+                <div class="space-x-4 animate-fade-in-up delay-200">
+                    <a href="#projects" class="inline-block bg-sky-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-sky-800 transition-colors duration-300">View Projects</a>
+                    <a href="#contact" class="inline-block bg-gray-200 text-gray-800 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-300 transition-colors duration-300">Get in Touch</a>
+                    <a href="#" download="To_Huynh_Ngoc_Ngan_CV.pdf" class="inline-block bg-sky-200 text-sky-800 font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-sky-300 transition-colors duration-300">
+                        Download CV
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me -->
+        <section id="about" class="py-16 md:py-24 animated-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-12 animate-fade-in-up">About Me</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12 lg:p-16 animate-fade-in-up delay-100">
+                <p class="text-lg text-gray-700 leading-relaxed text-justify">
+                    A highly motivated and results-oriented professional with 3 years of experience in e-commerce and operations. I have a proven track record of leveraging data from BI dashboards to inform business strategies, resulting in a **20% increase in revenue** during peak seasons and a **30% reduction in manual workload** through process optimization. Skilled in **SQL, Python, Excel**, and **Power BI**, with a strong foundation in data analysis and predictive modeling, as demonstrated through high-impact personal projects. I am eager to apply my analytical expertise to drive data-driven decision-making in a fast-paced environment.
+                </p>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section id="experience" class="py-16 md:py-24 bg-gray-100 animated-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-12 animate-fade-in-up">Work Experience</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12 lg:p-16 space-y-8 animate-fade-in-up delay-100">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-1">E-Commerce Executive</h3>
+                    <p class="text-sky-600 italic">Marou Chocolate Joint Stock Company, Ho Chi Minh City, Vietnam</p>
+                    <p class="text-sm text-gray-500 mb-4">October 2023 - Present</p>
+                    <ul class="list-icon list-inside space-y-2 text-gray-700">
+                        <li>
+                            <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                            Translated business KPIs into strategic actions by interpreting data from Power BI dashboards, providing actionable recommendations to enhance business performance.
+                        </li>
+                        <li>
+                            <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                            Collaborated with marketing and operations teams to analyze campaign data and optimize product mix, contributing to a **20% revenue increase** during seasonal peaks (Tet, Valentine, Easter).
+                        </li>
+                        <li>
+                            <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                            Streamlined reporting processes by leveraging Excel to automate key reports, successfully **reducing manual workload by 30%**.
+                        </li>
+                    </ul>
+                </div>
+                <hr class="border-gray-300">
+                <div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-1">E-Retail Specialist</h3>
+                    <p class="text-sky-600 italic">Marou Chocolate Co., Ltd., Ho Chi Minh City, Vietnam</p>
+                    <p class="text-sm text-gray-500 mb-4">September 2022 - September 2023</p>
+                    <ul class="list-icon list-inside space-y-2 text-gray-700">
+                        <li>
+                            <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                            Acted as a data-driven liaison between operations and data teams, ensuring daily execution was guided by reliable insights and improving overall process efficiency.
+                        </li>
+                        <li>
+                            <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                            Analyzed sales and customer data on online platforms (Shopee, Baemin) to track KPIs, monitor performance, and identify seasonal sales trends.
+                        </li>
+                        <li>
+                            <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                            Contributed to revenue optimization during key seasonal campaigns by providing data-backed insights on past sales performance.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16 md:py-24 animated-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-12 animate-fade-in-up">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300 animate-fade-in-up delay-100">
+                    <h3 class="text-xl font-semibold text-sky-700 mb-4">Programming & Frameworks</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)</li>
+                        <li>SQL</li>
+                        <li>C++</li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300 animate-fade-in-up delay-200">
+                    <h3 class="text-xl font-semibold text-sky-700 mb-4">BI & Visualization Tools</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>Power BI</li>
+                        <li>Microsoft Excel (PivotTable, Dashboard)</li>
+                        <li>Google Sheets</li>
+                    </ul>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300 animate-fade-in-up delay-300">
+                    <h3 class="text-xl font-semibold text-sky-700 mb-4">Analytical Skills</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700">
+                        <li>Predictive Modeling</li>
+                        <li>Feature Engineering</li>
+                        <li>Customer Segmentation</li>
+                        <li>Data Storytelling</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16 md:py-24 bg-gray-100 animated-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-12 animate-fade-in-up">Personal Projects</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12 lg:p-16 space-y-12 animate-fade-in-up delay-100">
+                
+                <!-- Project 1: Employee Attrition Prediction -->
+                <div id="project-1" class="mb-6 transform hover:scale-[1.01] transition-transform duration-300" data-project-title="Employee Attrition Prediction">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-1">Employee Attrition Prediction</h3>
+                    <p class="text-sm text-gray-500 mb-4">July 2025</p>
+                    <ul class="list-icon list-inside space-y-2 text-gray-700">
+                        <li>
+                            <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                            Conducted a comprehensive analysis on 4,653 employee records to identify key factors influencing attrition.
+                        </li>
+                        <li>
+                            <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                            Preprocessed data with **SMOTE** to address class imbalance and engineered new features for enhanced model performance.
+                        </li>
+                        <li>
+                            <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                            Trained and evaluated multiple advanced models including **XGBoost, LightGBM**, and **Random Forest**, achieving an impressive **87% recall** to effectively detect at-risk employees.
+                        </li>
+                    </ul>
+
+                    <!-- Chart for Project 1 -->
+                    <div class="mt-8">
+                        <h4 class="text-xl font-semibold text-slate-800 mb-4">Attrition Rate by Job Satisfaction (Illustrative Data)</h4>
+                        <div class="w-full h-80">
+                            <canvas id="attritionChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Insights for Project 1 -->
+                    <div class="mt-6">
+                        <h4 class="text-xl font-semibold text-slate-800 mb-2">Key Insights:</h4>
+                        <ul class="list-icon list-inside space-y-1 text-gray-700">
+                            <li>
+                                <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                The XGBoost model, with an **87% recall rate**, is highly effective at identifying at-risk employees.
+                            </li>
+                            <li>
+                                <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                Attrition risk is higher in employees with **short tenure, lower salaries, and younger demographics**.
+                            </li>
+                            <li>
+                                <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                Proposed retention strategies include clear career progression paths, competitive compensation, and mentorship programs for high-risk groups.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6">
+                        <p class="text-gray-600">
+                            Repository: <a href="https://github.com/celine1252/Employee" target="_blank" class="text-sky-600 hover:underline">Employee Attrition Prediction</a>
+                        </p>
+                    </div>
+                    <!-- Gemini API Feature: Summarize Project -->
+                    <div class="mt-6 text-right">
+                        <button class="summarize-btn bg-sky-600 text-white font-semibold py-2 px-4 rounded-full shadow-lg hover:bg-sky-700 transition-colors duration-300" data-project-id="project-1">
+                            Summarize Project ✨
+                        </button>
+                    </div>
+                    <div id="summary-output-project-1" class="mt-4 p-4 rounded-lg bg-gray-50 border border-gray-200 hidden">
+                        <p id="summary-text-project-1" class="text-gray-700"></p>
+                    </div>
+                </div>
+
+                <hr class="border-gray-300">
+
+                <!-- Project 2: Bank Customer Churn Analysis -->
+                <div id="project-2" class="mb-6 transform hover:scale-[1.01] transition-transform duration-300" data-project-title="Bank Customer Churn Analysis">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-1">Bank Customer Churn Analysis</h3>
+                    <p class="text-sm text-gray-500 mb-4">May 2025</p>
+                    <ul class="list-icon list-inside space-y-2 text-gray-700">
+                        <li>
+                            <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                            Performed an exploratory analysis on a dataset of 10,000+ customers using **SQL** and **Python** to uncover key churn drivers.
+                        </li>
+                        <li>
+                            <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                            Created an interactive dashboard in **Power BI** to segment customers and visualize churn behavior.
+                        </li>
+                        <li>
+                            <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                            Proposed strategic recommendations such as real-time alerts for high-risk customers and faster complaint resolution protocols to improve customer retention.
+                        </li>
+                    </ul>
+                    
+                    <!-- Chart for Project 2 -->
+                    <div class="mt-8">
+                        <h4 class="text-xl font-semibold text-slate-800 mb-4">Customer Churn Rate by Complaint Status (Illustrative Data)</h4>
+                        <div class="w-full h-80">
+                            <canvas id="bankChurnChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Insights for Project 2 -->
+                    <div class="mt-6">
+                        <h4 class="text-xl font-semibold text-slate-800 mb-2">Key Insights:</h4>
+                        <ul class="list-icon list-inside space-y-1 text-gray-700">
+                            <li>
+                                <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                Customers who have filed a complaint are almost certain to churn, with a churn rate of **99.51%**.
+                            </li>
+                            <li>
+                                <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                Customer satisfaction scores were **not a reliable indicator** for predicting retention.
+                            </li>
+                            <li>
+                                <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                The churn rate is a systemic issue, averaging around **20%** across various segments.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6">
+                        <p class="text-gray-600">
+                            Repository: <a href="https://github.com/celine1252/Bank-Customer-Churn" target="_blank" class="text-sky-600 hover:underline">Bank Customer Churn</a>
+                        </p>
+                    </div>
+                    <!-- Gemini API Feature: Summarize Project -->
+                    <div class="mt-6 text-right">
+                        <button class="summarize-btn bg-sky-600 text-white font-semibold py-2 px-4 rounded-full shadow-lg hover:bg-sky-700 transition-colors duration-300" data-project-id="project-2">
+                            Summarize Project ✨
+                        </button>
+                    </div>
+                    <div id="summary-output-project-2" class="mt-4 p-4 rounded-lg bg-gray-50 border border-gray-200 hidden">
+                        <p id="summary-text-project-2" class="text-gray-700"></p>
+                    </div>
+                </div>
+
+                <hr class="border-gray-300">
+
+                <!-- Project 3: Personal Financial Snapshot Analysis -->
+                <div id="project-3" class="mb-6 transform hover:scale-[1.01] transition-transform duration-300" data-project-title="Personal Financial Snapshot Analysis">
+                    <h3 class="text-2xl font-bold text-slate-800 mb-1">Personal Financial Snapshot Analysis</h3>
+                    <p class="text-sm text-gray-500 mb-4">January 2025 - February 2025</p>
+                    <ul class="list-icon list-inside space-y-2 text-gray-700">
+                        <li>
+                            <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                            Collected and analyzed 4 years of daily household financial transactions to assess income, expense, and savings patterns.
+                        </li>
+                        <li>
+                            <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                            Cleaned and processed raw data with **Python (Pandas, NumPy)** and structured the insights into **Power BI** dashboards.
+                        </li>
+                        <li>
+                            <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                            </svg>
+                            Successfully optimized personal budget, increasing the savings-to-income ratio from **29.2% to 47.3%**.
+                        </li>
+                    </ul>
+                    
+                    <!-- Chart for Project 3 -->
+                    <div class="mt-8">
+                        <h4 class="text-xl font-semibold text-slate-800 mb-4">Savings-to-Income Ratio Over the Years (Illustrative Data)</h4>
+                        <div class="w-full h-80">
+                            <canvas id="financialSnapshotChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Insights for Project 3 -->
+                    <div class="mt-6">
+                        <h4 class="text-xl font-semibold text-slate-800 mb-2">Key Insights:</h4>
+                        <ul class="list-icon list-inside space-y-1 text-gray-700">
+                            <li>
+                                <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                Effective expense management and income diversification have led to a continuous increase in savings over the years.
+                            </li>
+                            <li>
+                                <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                The Expense/Income ratio consistently decreased, while the Saving/Income ratio increased, demonstrating a positive financial trend.
+                            </li>
+                            <li>
+                                <svg class="icon w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                                </svg>
+                                Investment income has become a notable source of revenue since 2016.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-6">
+                        <p class="text-gray-600">
+                            Repository: <a href="https://github.com/celine1252/Personal-Financial-Snapshot" target="_blank" class="text-sky-600 hover:underline">Personal Financial Snapshot</a>
+                        </p>
+                    </div>
+                    <!-- Gemini API Feature: Summarize Project -->
+                    <div class="mt-6 text-right">
+                        <button class="summarize-btn bg-sky-600 text-white font-semibold py-2 px-4 rounded-full shadow-lg hover:bg-sky-700 transition-colors duration-300" data-project-id="project-3">
+                            Summarize Project ✨
+                        </button>
+                    </div>
+                    <div id="summary-output-project-3" class="mt-4 p-4 rounded-lg bg-gray-50 border border-gray-200 hidden">
+                        <p id="summary-text-project-3" class="text-gray-700"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gemini API Feature: Cover Letter Generator -->
+        <section id="cover-letter-generator" class="py-16 md:py-24 bg-sky-100 animated-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-sky-800 mb-12 animate-fade-in-up">Generate a Cover Letter ✨</h2>
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12 lg:p-16 max-w-4xl mx-auto animate-fade-in-up delay-100">
+                <div class="space-y-6">
+                    <div>
+                        <label for="job-description" class="block text-lg font-medium text-gray-700">
+                            1. Paste the Job Description here:
+                        </label>
+                        <textarea id="job-description" rows="8" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm p-4 border" placeholder="e.g., 'We are looking for a skilled Data Analyst to join our team...'"></textarea>
+                    </div>
+                    <div>
+                        <label for="project-select" class="block text-lg font-medium text-gray-700">
+                            2. Choose a relevant project from your portfolio:
+                        </label>
+                        <select id="project-select" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm p-2 border bg-white">
+                            <option value="none">-- Select a project --</option>
+                            <option value="project-1">Employee Attrition Prediction</option>
+                            <option value="project-2">Bank Customer Churn Analysis</option>
+                            <option value="project-3">Personal Financial Snapshot Analysis</option>
+                        </select>
+                    </div>
+                    <div class="text-center mt-6">
+                        <button id="generate-cover-letter-btn" class="w-full flex justify-center py-3 px-6 border border-transparent rounded-full shadow-sm text-lg font-medium text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 transition-colors duration-300">
+                            Generate Cover Letter ✨
+                        </button>
+                    </div>
+                    <div id="cover-letter-loader" class="text-center hidden">
+                        <div class="loader mx-auto"></div>
+                        <p class="mt-2 text-gray-600">Generating your draft...</p>
+                    </div>
+                    <div id="cover-letter-output" class="mt-6 p-6 rounded-lg bg-gray-50 border border-gray-200 hidden">
+                        <h4 class="text-xl font-semibold text-gray-800 mb-4">Your Draft Cover Letter:</h4>
+                        <textarea id="cover-letter-text" rows="15" class="w-full bg-transparent border-none focus:outline-none resize-none text-gray-800"></textarea>
+                        <div class="mt-4 text-right">
+                             <!-- Copy to clipboard button -->
+                             <button id="copy-to-clipboard" class="text-sm text-sky-600 hover:underline">Copy to Clipboard</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-16 md:py-24 animated-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-12 animate-fade-in-up">Education & Certificates</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-8 animate-fade-in-up delay-100 transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-bold text-slate-800">University of Information Technology (UIT)</h3>
+                    <p class="text-gray-600 italic mb-1">Bachelor's Degree in Information Technology</p>
+                    <p class="text-sm text-gray-500">October 2020 - July 2025</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 animate-fade-in-up delay-200 transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-bold text-slate-800">Google Data Analytics Professional Certificate</h3>
+                    <p class="text-gray-600 italic mb-1">Coursera</p>
+                    <p class="text-sm text-gray-500">Completed: July 2025</p>
+                </div>
+                <div class="md:col-span-2 bg-white rounded-xl shadow-lg p-8 animate-fade-in-up delay-300 transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="text-xl font-bold text-slate-800 mb-2">Other Certifications</h3>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>Data for Everyone - MindX (2025)</li>
+                        <li>Business Intelligence Analyst - MindX (2025)</li>
+                        <li>Data Analyst - MindX (2025)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section with Form -->
+        <section id="contact" class="py-16 md:py-24 bg-gray-100 animated-section">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-800 mb-4 animate-fade-in-up">Get in Touch</h2>
+            <p class="text-lg text-gray-700 text-center max-w-2xl mx-auto mb-8 animate-fade-in-up delay-100">
+                If you have a project in mind or just want to connect, feel free to reach out. I'm always open to new opportunities!
+            </p>
+            <div class="bg-white rounded-xl shadow-lg p-8 md:p-12 lg:p-16 max-w-2xl mx-auto animate-fade-in-up delay-200">
+                <form id="contactForm" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm p-2 border">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm p-2 border">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm p-2 border"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 transition-colors duration-300">
+                            Send Message
+                        </button>
+                    </div>
+                    <div id="form-message" class="mt-4 text-center hidden"></div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-gray-400 text-center py-6">
+        <p>&copy; 2025 To Huynh Ngoc Ngan. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for fade-in animations
+            const animatedSections = document.querySelectorAll('.animated-section');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    // Check if the section is intersecting and is not already animated
+                    if (entry.isIntersecting && !entry.target.classList.contains('animate-fade-in-up')) {
+                        entry.target.classList.add('animate-fade-in-up');
+                        // The opacity fix is now in the CSS, so we just add the animation class
+                    }
+                });
+            }, {
+                rootMargin: '0px',
+                threshold: 0.2
+            });
+
+            animatedSections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // --- Contact Form Submission ---
+            const form = document.getElementById('contactForm');
+            const formMessage = document.getElementById('form-message');
+
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    const name = document.getElementById('name').value;
+                    
+                    formMessage.textContent = `Thank you, ${name}! Your message has been sent.`;
+                    formMessage.classList.remove('hidden');
+                    formMessage.classList.add('text-green-600');
+                    
+                    form.reset();
+                });
+            }
+
+            // --- Chart 1: Employee Attrition ---
+            const attritionChartElement = document.getElementById('attritionChart');
+            if (attritionChartElement) {
+                const attritionData = {
+                    labels: ['Low', 'Medium', 'High', 'Very High'],
+                    datasets: [{
+                        label: 'Attrition Rate (%)',
+                        data: [15, 25, 40, 60],
+                        backgroundColor: [
+                            'rgba(59, 130, 246, 0.6)',
+                            'rgba(14, 165, 233, 0.6)',
+                            'rgba(6, 182, 212, 0.6)',
+                            'rgba(45, 212, 191, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgb(59, 130, 246)',
+                            'rgb(14, 165, 233)',
+                            'rgb(6, 182, 212)',
+                            'rgb(45, 212, 191)'
+                        ],
+                        borderWidth: 1
+                    }]
+                };
+
+                const attritionConfig = {
+                    type: 'bar',
+                    data: attritionData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Attrition Rate (%)'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return 'Rate: ' + context.parsed.y + '%';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+                new Chart(attritionChartElement, attritionConfig);
+            }
+
+            // --- Chart 2: Bank Customer Churn ---
+            const bankChurnChartElement = document.getElementById('bankChurnChart');
+            if (bankChurnChartElement) {
+                const bankChurnData = {
+                    labels: ['No Complaint', 'With Complaint'],
+                    datasets: [{
+                        label: 'Churn Rate (%)',
+                        data: [20, 99.51],
+                        backgroundColor: [
+                            'rgba(251, 191, 36, 0.6)',
+                            'rgba(244, 63, 94, 0.6)'
+                        ],
+                        borderColor: [
+                            'rgb(251, 191, 36)',
+                            'rgb(244, 63, 94)'
+                        ],
+                        borderWidth: 1
+                    }]
+                };
+
+                const bankChurnConfig = {
+                    type: 'bar',
+                    data: bankChurnData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Churn Rate (%)'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return 'Rate: ' + context.parsed.y + '%';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+                new Chart(bankChurnChartElement, bankChurnConfig);
+            }
+
+            // --- Chart 3: Personal Financial Snapshot ---
+            const financialSnapshotChartElement = document.getElementById('financialSnapshotChart');
+            if (financialSnapshotChartElement) {
+                const financialSnapshotData = {
+                    labels: ['2015', '2016', '2017', '2018'],
+                    datasets: [{
+                        label: 'Savings-to-Income Ratio (%)',
+                        data: [29.2, 35.5, 42.1, 47.3],
+                        fill: false,
+                        borderColor: 'rgb(56, 189, 248)',
+                        tension: 0.1
+                    }]
+                };
+
+                const financialSnapshotConfig = {
+                    type: 'line',
+                    data: financialSnapshotData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Savings-to-Income Ratio (%)'
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        }
+                    }
+                };
+                new Chart(financialSnapshotChartElement, financialSnapshotConfig);
+            }
+
+            // --- Gemini API Call Functions ---
+            const API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent";
+            const API_KEY = ""; // Canvas will provide this at runtime
+
+            async function callGeminiAPI(prompt) {
+                let attempts = 0;
+                const maxAttempts = 5;
+                const baseDelay = 1000;
+
+                while (attempts < maxAttempts) {
+                    try {
+                        const response = await fetch(`${API_URL}?key=${API_KEY}`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                        });
+
+                        if (!response.ok) {
+                            if (response.status === 429) {
+                                throw new Error('Rate limit exceeded');
+                            }
+                            throw new Error(`API error: ${response.statusText}`);
+                        }
+
+                        const result = await response.json();
+                        const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+                        if (text) {
+                            return text;
+                        } else {
+                            throw new Error('No content received from API');
+                        }
+                    } catch (error) {
+                        attempts++;
+                        const delay = baseDelay * Math.pow(2, attempts - 1);
+                        console.error(`Attempt ${attempts} failed: ${error.message}. Retrying in ${delay}ms...`);
+                        await new Promise(res => setTimeout(res, delay));
+                    }
+                }
+                return 'Error: Could not get a response from the AI after several attempts.';
+            }
+
+            // --- Gemini Feature 1: Project Summarizer ---
+            const summarizeButtons = document.querySelectorAll('.summarize-btn');
+            summarizeButtons.forEach(button => {
+                button.addEventListener('click', async () => {
+                    const projectId = button.dataset.projectId;
+                    const projectElement = document.getElementById(projectId);
+                    const summaryOutput = document.getElementById(`summary-output-${projectId}`);
+                    const summaryText = document.getElementById(`summary-text-${projectId}`);
+                    const projectTitle = projectElement.querySelector('h3').textContent;
+                    const projectDetails = Array.from(projectElement.querySelectorAll('ul li')).map(li => li.textContent.trim()).join(' ');
+                    
+                    // Show a loading indicator
+                    summaryOutput.classList.remove('hidden');
+                    summaryText.innerHTML = '<span class="loader mr-2"></span> Generating summary...';
+
+                    // Construct the prompt for the AI
+                    const prompt = `Bạn là một trợ lý phân tích dữ liệu chuyên nghiệp. Vui lòng tóm tắt dự án sau đây thành một đoạn văn ngắn gọn, chuyên nghiệp, khoảng 2-3 câu. Tóm tắt nên tập trung vào mục tiêu, phương pháp chính và kết quả quan trọng nhất của dự án.
+                    Dự án: ${projectTitle}
+                    Chi tiết: ${projectDetails}`;
+
+                    const summary = await callGeminiAPI(prompt);
+                    
+                    // Display the generated summary
+                    summaryText.textContent = summary;
+                });
+            });
+
+            // --- Gemini Feature 2: Cover Letter Generator ---
+            const generateCoverLetterBtn = document.getElementById('generate-cover-letter-btn');
+            const jobDescriptionInput = document.getElementById('job-description');
+            const projectSelect = document.getElementById('project-select');
+            const coverLetterOutput = document.getElementById('cover-letter-output');
+            const coverLetterTextarea = document.getElementById('cover-letter-text');
+            const coverLetterLoader = document.getElementById('cover-letter-loader');
+            const copyButton = document.getElementById('copy-to-clipboard');
+
+            generateCoverLetterBtn.addEventListener('click', async () => {
+                const jobDescription = jobDescriptionInput.value;
+                const selectedProjectId = projectSelect.value;
+                
+                if (selectedProjectId === 'none' || !jobDescription.trim()) {
+                    coverLetterTextarea.textContent = 'Please provide a job description and select a project.';
+                    coverLetterOutput.classList.remove('hidden');
+                    return;
+                }
+
+                const projectElement = document.getElementById(selectedProjectId);
+                const projectTitle = projectElement.querySelector('h3').textContent;
+                const projectDetails = Array.from(projectElement.querySelectorAll('ul li')).map(li => li.textContent.trim()).join(' ');
+
+                // Show loader and hide previous output
+                coverLetterOutput.classList.add('hidden');
+                coverLetterLoader.classList.remove('hidden');
+                
+                // Construct a detailed prompt for the AI
+                const prompt = `Bạn là một chuyên gia tuyển dụng và tư vấn nghề nghiệp. Vui lòng viết một thư xin việc chuyên nghiệp bằng tiếng Việt cho một vị trí phân tích dữ liệu. Thư này nên được cá nhân hóa bằng cách kết nối kinh nghiệm từ một dự án cụ thể với các yêu cầu của mô tả công việc. Dưới đây là thông tin cần thiết:
+                
+                Mô tả công việc:
+                ${jobDescription}
+                
+                Thông tin dự án liên quan (Sử dụng thông tin này để chứng minh kỹ năng của ứng viên):
+                Tiêu đề dự án: ${projectTitle}
+                Mô tả dự án: ${projectDetails}
+
+                Vui lòng cấu trúc thư xin việc theo các phần sau:
+                1. Mở đầu: Giới thiệu bản thân và bày tỏ sự quan tâm đến vị trí, đề cập đến nơi tìm thấy thông tin công việc.
+                2. Đoạn thân: Nêu bật các kỹ năng và kinh nghiệm liên quan từ dự án đã chọn, giải thích cách các kỹ năng đó phù hợp với các yêu cầu trong mô tả công việc. Sử dụng các số liệu cụ thể (nếu có) để chứng minh thành tựu.
+                3. Kết luận: Tóm tắt lại sự quan tâm của bạn, bày tỏ mong muốn được phỏng vấn để thảo luận thêm và thể hiện sự nhiệt tình.
+                4. Cung cấp một lời chào kết thúc chuyên nghiệp.
+
+                Vui lòng viết thư một cách mạch lạc và thuyết phục, sử dụng ngôn từ chuyên nghiệp và tự tin.`;
+
+                const coverLetterDraft = await callGeminiAPI(prompt);
+                
+                // Hide loader and show the generated draft
+                coverLetterLoader.classList.add('hidden');
+                coverLetterTextarea.textContent = coverLetterDraft;
+                coverLetterOutput.classList.remove('hidden');
+            });
+
+            // Copy to clipboard functionality
+            copyButton.addEventListener('click', () => {
+                coverLetterTextarea.select();
+                document.execCommand('copy');
+                copyButton.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyButton.textContent = 'Copy to Clipboard';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
