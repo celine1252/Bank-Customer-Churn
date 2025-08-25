@@ -67,5 +67,5 @@ Automate churn reports with Power BI Service.
 To Huynh Ngoc Ngan
 Data Analyst | SQL | Python | Power BI
 
-LinkedIn
+[LinkedIn](https://www.linkedin.com/in/nganto0125/)
  | [GitHub](https://github.com/celine1252/)
